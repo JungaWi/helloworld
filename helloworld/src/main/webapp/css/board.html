@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css/board.html</title>
+    <style>        
+        #search {
+            color: white;
+            background-color: blue;
+            width: 100px;
+            text-align: center;
+        }
+
+        /* 첫번째 td에만 값을 주겠다 */
+        tr>td:nth-child(1) { 
+            background-color: yellow;
+            text-align: center;
+        }
+        /* 세번째 td에만 값을 주겠다 */
+        tr>td:nth-child(3) {
+            background-color: chartreuse;
+            text-align: right;
+        }
+        /* tr 중에 짝수번째에만 */
+        tr:nth-child(2n) {
+            color: red;
+        }
+        /* 3번째 tr의 4번째 td에... */
+        tr:nth-child(3)>td:nth-child(4) {
+            color: blue;
+        }
+        #attachment {
+            color: blue;
+        }
+        /*버튼 태그 중에서 첫번째에만 값주기*/
+        tr>td>button:nth-of-type(1) {
+            background-color: aqua;
+        }
+        /*버튼 태그 중에서 뒤에서 첫번째에만 값주기*/
+        tr>td>button:nth-last-of-type(1) {
+            background-color: blueviolet;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+    <div id="search">게시글 검색</div>
+    <table border="1" style="width:100%">     
+        <tr>
+            <td>게시글 등록일</td>
+            <td><textarea rows="1" cols="10">...</textarea><input type="date" name="from" min="2021-09-01" max="2021-12-31"> - </td>
+            <td><textarea rows="1" cols="10">...</textarea><input type="date" name="to" min="2021-09-01" max="2021-12-31"></td>
+            <td colspan="2">
+                <button type="button" onclick="alert('오늘')">오늘</button><button type="button" onclick="alert('어제')">어제</button>
+                <button type="button" onclick="alert('3일')">3일</button><button type="button" onclick="alert('7일')">7일</button>
+                <button type="button" onclick="alert('한달')">한달<button type="button" onclick="alert('초기화')">초기화</button></button></td>       
+        </tr>
+        <tr>
+            <td>게시판 선택</td>
+            <td><select><option value="1" selected>상품후기게시판</option></select></td>
+            <td><select><option value="1" selected>전체</option>
+            </select></td>
+            <td><select><option value="1" selected>스팸글 포함(전체)</option></select></td>
+            <td><input type="radio" checked>전체 <input type="radio">진열 <input type="radio">미진열</td>
+        </tr>
+        <tr>
+            <td>답변/댓글 여부</td>
+            <td colspan="2"><select><option value="1" selected>전체</option></select></td>
+            <td>첨부파일 여부</td>
+            <td id='attachment'>ddddddddd<button type="button" onclick="alert('전체')">전체</button><button type="button" onclick="alert('있음')">있음</button>
+                <button type="button" onclick="alert('없음')">없음</button></td>
+        </tr>
+        <tr>
+            <td>게시글 검색</td>
+            <td colspan="2"><select><option value="1" selected>이름</option></select><textarea rows="1" cols="10">...</textarea></td>
+            <td>노출조건 선택</td>
+            <td><select><option value="1" selected>전체 게시글</option></select><input type="checkbox">답변글 노출</td>            
+        </tr>
+        <tr>
+            <td>상품명 검색</td>
+            <td colspan="2"><select><option value="1" selected>상품명</option></select><textarea rows="1" cols="10">...</textarea></td>
+        </tr>
+        <tr>
+            <td>별점 조건</td>
+            <td colspan="2"><input type="radio" checked>전체 리뷰 <input type="radio">★★★★★ <input type="radio">★★★★
+                <input type="radio">★★★ <input type="radio">★★ <input type="radio">★</td>
+        </tr>
+    </table>
+    <div id="mainSearch">
+        <input type="submit" value="검색">
+    </div>
+</body>
+
+</html>
